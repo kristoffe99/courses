@@ -1,132 +1,233 @@
 <html>
+<html lang="en">
 <head>
-<title> Hot Beans </title>
-<style>
-body{
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f5f5f5;
-  }
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hot Beans - Courses</title>
  
-}
- 
-ul li {
-  float: right;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
 
-  /*Header */
-  header{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 15px 30px;
-   background: white;
-   border-bottom: 1px solid #ccc;
-   }
-   
-   .logo{
-    font-size: 20px;
-	font-weight: bold;
-	}
-	
-	nav a{
-	 margin: 0 10px;
-	 text-decoration: none;
-	 color:#333;
-	}
-	
-	.search-box{
-	 padding: 5px;
-	}
-	
-	/*Main layout */
-	.container{
-	  padding: 30px;
-	}
-	
-	.intro{
-	 margin-bottom: 20px;
-	 font-weight: bold;
-	}
+    body{
+      background:#0b0b0b;
+      color:white;
+      min-height:100vh;
+    }
 
-    .grid{
-      display:grid;
-	  grid-template-columns:2fr 1fr;
-	  gap: 20px;
-	}
-	
-	.box{
-	  background: white;
-	  border: 2px solid #ccc;
-	  padding: 20px
-	  text-align:center;
-	  min-height: 150px;
-	  display: flex;
-	  justify-content: center;
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 5%;
+      border-bottom:1px solid rgba(255,255,255,0.2);
+      flex-wrap:wrap;
+      gap:20px;
+    }
 
-</style>
+    .left-header{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo{
+      width:50px;
+      height:50px;
+      border:1px solid white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      font-size:12px;
+      line-height:1.2;
+    }
+
+    .title{
+      font-size:2rem;
+      color:#f4b36b;
+      font-weight:500;
+    }
+
+    .search-btn{
+      padding:12px 40px;
+      background:transparent;
+      border:2px solid white;
+      border-radius:6px;
+      color:white;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .search-btn:hover{
+      background:white;
+      color:black;
+    }
+
+    nav{
+      padding:15px 5%;
+      border-bottom:1px solid rgba(255,255,255,0.2);
+    }
+
+    nav ul{
+      display:flex;
+      gap:40px;
+      list-style:none;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#f4b36b;
+    }
+
+    .main-container{
+      padding:40px 5%;
+      display:flex;
+      flex-direction:column;
+      gap:30px;
+    }
+
+    .course-card{
+      background:#111;
+      border:1px solid rgba(255,255,255,0.2);
+      padding:25px;
+      border-radius:6px;
+      min-height:220px;
+    }
+
+    .course-title{
+      font-size:1.4rem;
+      margin-bottom:15px;
+      font-weight:bold;
+      color:#f4b36b;
+    }
+
+    .course-description{
+      font-size:1rem;
+      line-height:1.5;
+      color:#fff;
+    }
+
+    .course-search{
+      display:flex;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .course-search input{
+      flex:1;
+      padding:10px;
+      border-radius:6px;
+      border:1px solid #333;
+      background:#0b0b0b;
+      color:white;
+      font-size:1rem;
+    }
+
+    .course-search button{
+      padding:10px 20px;
+      border-radius:6px;
+      border:1px solid white;
+      background:transparent;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .course-search button:hover{
+      background:white;
+      color:black;
+    }
+
+    @media (max-width:768px){
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .title{
+        font-size:1.7rem;
+      }
+      nav ul{
+        gap:20px;
+      }
+    }
+
+    @media (max-width:480px){
+      .logo{
+        width:45px;
+        height:45px;
+        font-size:10px;
+      }
+      .title{
+        font-size:1.4rem;
+      }
+      .search-btn{
+        width:100%;
+      }
+      nav ul{
+        flex-direction:column;
+        gap:15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-<div class="logo">Hot Beans</div>
-<nav>
-<ul>
-<li><a href="https://kristoffe99.github.io/home/">Home</a></li>
-<li><a href="https://kristoffe99.github.io/meet-the-team/">Meet the team</a></li>
-<li><a href="https://kristoffe99.github.io/profession/">Profession</a></li>
-<li><a href="https://kristoffe99.github.io/apply/">Apply</a></li>
-<li><a href="https://kristoffe99.github.io/courses/">Courses</a></li>
-</ul>
-</nav>
-<input class="search-box" type="text" placeholder="Search">
-</header>
-<div class="container">
-<div class="intro"> 
 
-<p>
-Introduction
-</p>
+  <header>
+    <div class="left-header">
+      <div class="logo">Blog<br>Logo</div>
+      <h1 class="title">Hot Beans</h1>
+    </div>
+    <button class="search-btn">Search</button>
+  </header>
 
-<p>
-
-Hot Beans is a modern web development company that specialises in creating professional, user-friendly websites for business of all sizes. The company focuses on designing responsive websites, developing web applications, and providing digital solutions that help clients grow their online presence. They also offer training and career opportunities for aspiring web developers, helping them gain real-world experience in the industry.
-
-</p>
-
-</div>
-
-<div class="grid">
-
-<div class="box">
-
-<h3 style="text-align: center;">Achievements:</h3>
-
+  <nav>
     <ul>
-    <li>Successfully delivered over 200 web development projects for clients worldwide</li>
-
-    <li>Won the "Best emergin Web Company" award in 2023</li>
-
-    <li>Built partnerships with local business startups</li>
-
-    <li>Trained and mentored over 50 junior developers</li>
-
-    <li>Achieved high client satisfaction rates with positive feedback and repeat customers</li>
-
+      <li><a href="https://kristoffe99.github.io/home/">Home</a></li>
+      <li><a href="https://kristoffe99.github.io/meet-the-team/">Meet the team</a></li>
+      <li><a href="https://kristoffe99.github.io/profession/">Profession</a></li>
+      <li><a href="https://kristoffe99.github.io/apply/">Apply</a></li>
+      <li><a href="https://kristoffe99.github.io/courses/">Courses</a></li>
     </ul>
-	   
-</div>
+  </nav>
 
-<div class="right-column">
-<div class="box">
-         (A small introduction video of the company and a quick peek inside such as how they work)
-</div>
-<div class="box">
-Hot Beans' Objective
-Hot Beans constantly aim and thrive to become a better version of the past, our goal is to become a leading web development company known for innovation, quality, and creativity. We aim to help businesses succeed online while also supporting the next generation of developers through training, apprenticeships, and career development opportunities.
-</div>
-</div>
-</div>
-</div>
+  <main class="main-container">
+
+    <div class="course-search">
+      <input type="text" placeholder="Search for a course">
+      <button>Search</button>
+    </div>
+
+    <section class="course-card">
+      <div class="course-title">Course 1</div>
+      <div class="course-description">
+        Brief description of Course 1 goes here. Add details about lessons, skills, or requirements.
+      </div>
+    </section>
+
+    <section class="course-card">
+      <div class="course-title">Course 2</div>
+      <div class="course-description">
+        Brief description of Course 2 goes here. Add details about lessons, skills, or requirements.
+      </div>
+    </section>
+
+  </main>
+
 </body>
+</html>
 </html>
